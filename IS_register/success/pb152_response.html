@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html class="no-js" lang="cs">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>Přihlášení do IS MU</title>
+<link href="/favicon.ico" rel="icon" sizes="32x32">
+<link href="/favicon.svg" rel="icon" type="image/svg+xml">
+<link href="/css/r6/foundation.min.css?_v=ab3b2b3" media="screen,print" rel="stylesheet" type="text/css">
+<link href="/css/r/icons/foundation-icons.css?_v=d866a73" media="screen,print" rel="stylesheet" type="text/css">
+<link href="/css/r6/prvky.css?_v=bdf0a79" media="screen,print" rel="stylesheet" type="text/css">
+<link href="/css/r6/r6.css?_v=d1c892b" media="screen,print" rel="stylesheet" type="text/css">
+<link href="/css/r6/motiv/1.css?_v=9421c26" media="screen" rel="stylesheet" type="text/css">
+<link href="/css/r6/r6-print.css?_v=d1a07b2" media="print" rel="stylesheet" type="text/css">
+<style>
+body {
+	background: #c2c2c2;
+}
+
+body.without_footer {
+	background-color: transparent;
+}
+
+#content {
+	background: var(--bg);
+}
+
+h1.app_name {
+	color: var(--text);
+	font-family: Roboto,Open Sans,Arial,sans-serif;
+	font-size: 2.428rem;
+	font-weight: 100;
+	line-height: 1.5;
+	margin: 1rem 0 0 0;
+}
+
+.inputs_wrap {
+	background-color: var(--bgbarva-seda1);
+	border-top: 2px solid var(--barva1);
+	padding: 4rem 0;
+}
+
+img.kontkod {
+	padding: 2.5rem 0;
+}
+
+@media screen and (max-width: 39.9375em) {
+
+	h1.app_name {
+		margin-top: 0rem;
+	}
+
+	#app_menu {
+		display: none;
+	}
+
+	img.kontkod {
+		padding: 0;
+	}
+}
+
+.islogin_form .input-group-label {
+	background-color: #6d6d6d;
+	border: 1px solid #6d6d6d;
+	border-left: none;
+}
+
+.islogin_form .input-group-label i {
+	color: white;
+	font-size: 1.5rem;
+}
+
+.islogin_form .input-group-label, .islogin_form input, .islogin_form select {
+	height: 3rem;
+}
+
+.prihlasit_button, .reg_button {
+	margin: 1rem .1rem;
+	padding: 0.8rem 1.2rem !important;
+}
+
+.is_prihlasit {
+	padding: 0.8rem 1.6rem !important;
+}
+
+.zapomn_heslo, .prihlasit_odkaz, .reg_odkaz {
+	display: inline-block;
+	vertical-align: middle;
+	padding: .6em 0;
+	margin: 1em;
+}
+
+.dalsi_info {
+	padding-top: 2rem;
+}
+
+.dalsi_info .isi-vykricnik:before {
+	vertical-align: middle;
+	padding-right: .25em;
+	color: var(--barva1);
+	font-size: 1.8rem;
+}
+
+.islogin_form abbr.povinne {
+	display: none;
+}
+
+.regs_wrap {
+	margin-top: calc( 2.428rem * 1.5 + 1rem);
+	padding: 4rem 0;
+	border: 1px solid #f0f0f0;
+	background-color: var(--bg);
+}
+
+.regs_wrap .button {
+	width: 100%;
+}
+
+.is_button {
+	position: relative;
+	padding: 0.8rem 1.2rem;
+	padding-left: 3.4rem;
+}
+
+.is_button:before  {
+	content: ' ';
+	background-image: url(/pics/design/14/b/logotyp-is.png);
+	background-repeat: no-repeat;
+	background-size: 1.5rem;
+	background-position: 0.5rem;
+	background-color: var(--bg);
+	height: 2.6rem;
+	width: 2.6rem;
+	display: block;
+	padding: 0.2rem;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	border-radius: 1px;
+}
+
+.ei_button {
+	position: relative;
+	padding: 0.8rem 1.2rem;
+	padding-left: 3.4rem;
+	height: calc(5vh + 4px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.ei_button:before  {
+	content: ' ';
+	background-image: url(/pics/eidentita.png);
+	background-repeat: no-repeat;
+	background-size: 90%;
+	background-position: center;
+	background-color: var(--bg);
+	display: block;
+	padding: 0.2rem;
+	position: absolute;
+	left: 1px;
+	top: 1px;
+	bottom: 1px;
+	border-radius: 1px;
+	width: 5vh;
+	height: 5vh;
+}
+
+
+.fb_button {
+	background-color: #3b5998;
+	position: relative;
+	padding: 0.8rem 1.2rem;
+	padding-left: 3.4rem;
+}
+
+.fb_button:hover {
+	background-color: #3a61b3;
+}
+
+.fb_button:before  {
+	content: ' ';
+	background-image: url(/pics/flogo-HexRBG-Wht-58.svg);
+	background-repeat: no-repeat;
+	background-size: 2rem;
+	height: 2rem;
+	width: 2rem;
+	display: block;
+	position: absolute;
+	left: calc(.2rem + 1px);
+	top: calc(.2rem + 1px);
+}
+
+.go_button {
+	position: relative;
+	padding: 0.8rem 1.2rem;
+	padding-left: 3.4rem;
+	background-color: #4285f4;
+	margin-bottom: calc(1rem - 4px);
+}
+
+.go_button:hover {
+	box-shadow: 0 0 3px 3px rgba(66,133,244,.3);
+	background-color: #4285f4;
+}
+
+.go_button:before  {
+	content: ' ';
+	background-image: url(/pics/btn_google_dark_normal_ios.svg);
+	background-repeat: no-repeat;
+	background-size: calc(2.4rem + 10px);
+	height: calc(2.4rem + 10px);
+	width: calc(2.4rem + 10px);
+	display: block;
+	position: absolute;
+	left: -3.8px;
+	top: -3.8px;
+}
+
+@media screen and (max-width: 39.9375em) {
+	.inputs_wrap {
+		padding: 1rem 0;
+	}
+
+	.regs_wrap {
+		margin-top: 0;
+		padding: 1rem 0;
+		border: none;
+	}
+}
+
+</style>
+<script src="/js/r6/jquery.js?_v=3736f12"></script>
+<script src="/js/error.js?_v=e23fead"></script>
+<script src="/js/r6/foundation.js?_v=5763574"></script>
+</head>
+<body class="cs noauth skola_14 motiv-1 motiv-svetly">
+<a href="#sticky_panel" class="show-on-focus print-hide">Přeskočit na horní lištu</a><a href="#hlavicka" class="show-on-focus print-hide">Přeskočit na hlavičku</a><a href="#app_content" class="show-on-focus print-hide">Přeskočit na obsah</a><a href="#paticka" class="show-on-focus print-hide">Přeskočit na patičku</a>
+<div id="content" class="">
+	<div id="zdurazneni-sticky" class="zdurazneni-sticky print-hide" role="alert" aria-atomic="true"></div>
+	<div id="rows_wrapper">
+		<div class="foundation-design-z">
+			<nav id="sticky_panel" >
+	<div class="row">
+		<div class="column">
+			<div class="ikony">
+				<a href="https://is.muni.cz/" class="sticky_home" title="Informační systém Masarykovy univerzity" aria-label="Informační systém Masarykovy univerzity"></a>
+				<span><a href="/login/pfsKGy6EgjWQ06ooPFyNTfYu?lang=en" class="sticky-item prepinac-jazyk jazyk-en" aria-label="switches IS into English" title="switches IS into English" >EN</a></span>
+			</div>
+		</div>
+	</div>
+</nav>
+			
+			<header class="row hlavicka" id="hlavicka">
+	<div class="small-5 medium-3 columns znak skola14">
+		
+	</div>
+	<div id="is-prepinace" class="small-7 medium-9 columns">
+		
+		<div id="prepinace">
+        <ul aria-hidden="true" class="is-switch dropdown menu" data-dropdown-menu data-click-open="true" data-closing-time="0" data-autoclose="false" data-disable-hover="true" data-close-on-click="true" data-force-follow="false" data-close-on-click-inside="false" data-alignment="right">
+                
+                
+                
+        </ul>
+        <ul class="show-for-sr">
+                
+                
+                
+        </ul>
+</div>
+	</div>
+</header>
+<div class="row" aria-hidden="true">
+	<div class="column">
+		<a href="#" class="app_header_motiv_switch show-for-medium" title="Změna motivu" aria-label="Změna motivu" data-open="motiv_reveal"><i class="isi-nastaveni isi-inline" aria-hidden="true"></i></a>
+		
+	</div>
+</div><!--[if lt IE 9]><div class="zdurazneni varovani ie_warning"  ><h3 class="zdurazneni-nadpis">Varování:</h3><h3>Váš prohlížeč Internet Explorer je zastaralý.</h3><p>Jsou známa bezpečnostní rizika a prohlížeč možná nedokáže zobrazit všechny prvky této a dalších webových stránek.</p></div>
+<![endif]-->
+		</div>
+		<div id="app_content_row" class="row"><main id="app_content" class="column" role="main"><div class="row align-center">
+	<div class="small-12 medium-8 large-6 column"><h1 class="app_name">Přihlášení do IS MU</h1><form data-abide novalidate method="post" enctype="application/x-www-form-urlencoded" class="islogin_form clearfix" id="prvek_9764088"><INPUT TYPE=hidden NAME="akce" VALUE="login"><div class="inputs_wrap"><div class="row align-center">
+	<div class="small-11 medium-8 large-6 column"><label for="prvek_3838131">Učo nebo přezdívka<abbr class="povinne" aria-label="Povinná položka" title="Povinná položka">*</abbr></label><span class="input-group"><input class="onload_focus input-group-field" data-validator="required" id="prvek_3838131" name="credential_0" type="text" value=""><span class="input-group-label"><i class="isi-torso" aria-hidden="true"></i></span></span><span class="form-error" data-form-error-for="prvek_3838131"><span class="form-error-text"></span></span><label for="prvek_1618815">Primární heslo<abbr class="povinne" aria-label="Povinná položka" title="Povinná položka">*</abbr></label><span class="input-group"><input class="input-group-field" data-validator="required" id="prvek_1618815" name="credential_1" type="password" value=""><span class="input-group-label"><i class="isi-key" aria-hidden="true"></i></span></span><span class="form-error" data-form-error-for="prvek_1618815"><span class="form-error-text"></span></span></div>
+</div>
+</div><div class="row align-middle"><div class="column nedurazne">
+			      <a href="https://is.muni.cz/podpora/obnova_pristupu?akce=login">Nemůžete se přihlásit?
+			      </a>
+			    </div>   <div class="column"><button id="prvek_6453165" class="is_prihlasit prihlasit_button float-right prevent_multiclick button" type="submit" name="uloz" value="uloz">Přihlásit</button>   </div>
+		      </div></form><div class="row">
+	<div class="small-12 dalsi_info column"><div><span class="isi-vykricnik isi-prepend isi-prep__velka-ikona">Uložením hesla v prohlížeči přebíráte osobní odpovědnost za jeho zneužití.</span></div></div>
+</div>
+</div>
+</div>
+</main></div>
+		
+		<div class="foundation-design-z foot_clear">
+			
+	<div class="row">
+		
+	</div>
+	<footer id="paticka" class="">
+		<div class="row">
+			<div class="columns small-12 medium-6 paticka_logo">
+	<a href="https://is.muni.cz/"><span class="show-for-sr">IS MU</span></a>
+	<div>
+		Informační&nbsp;systém Masarykovy&nbsp;univerzity
+		<div class="footer_about">
+			<a href="https://is.muni.cz/nas_system/">Více o IS MU</a>, provozuje <a href="https://www.fi.muni.cz/">Fakulta informatiky MU</a>
+		</div>
+		
+	</div>
+</div>
+<div class="columns small-6 medium-3">
+	<div class="footer_podpora">
+	<a href="https://is.muni.cz/podpora/">Potřebujete poradit?</a>
+	<span class="kont_email"><nobr class="postovni_adresa"><!-- <a href="user235@my.hotmail.com">user235@my.hotmail.com</a> -->istech<img src="/pics/posta/bb6a3aa8c071b60a159e9f628737fa9dZ.gif" alt="(zavináč/atsign)" />fi<img src="/pics/posta/7c1589d535de2fa5baa1dfceb3ceed58T.gif" alt="(tečka/dot)" />muni<img src="/pics/posta/7c1589d535de2fa5baa1dfceb3ceed58T.gif" alt="(tečka/dot)" />cz</nobr></span>
+</div>
+	<div class="footer_napoveda">
+		<a href="https://is.muni.cz/napoveda/jine/pristup">Nápověda</a>
+	</div>
+	<div class="row">
+		<div class="columns small-12 display-none">
+			<div class="footer_zoomy">
+				<a href="" rel="nofollow"></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="columns small-6 medium-3 nastaveni_col">
+	<div class="footer_datum">
+		<span title="Dnes je 9. (lichý) týden.">26. 2. 2025 <span style='padding: 0 0.6em'>|</span> 17:08</span>
+		<a href="https://is.muni.cz/system/cas" title="Dnes je 9. (lichý) týden." class="footer_cas">Aktuální datum a&nbsp;čas</a>
+	</div>
+	<div>
+	
+	<div class="footer_nastaveni"><a href="https://is.muni.cz/nas_system/ochrana_informaci">Použití cookies</a><a href="https://is.muni.cz/system/pristupnost" class="footer_about">Přístupnost</a></div>
+</div>
+</div>
+			<div class="right-border"></div>
+			<div class="left-border"></div>
+		</div>
+		<a href="#hlavicka" class="skip_up" title="Skočit na začátek stránky">
+			Nahoru
+		</a>
+	</footer>
+
+		</div>
+	</div>
+</div>
+
+
+<script src="/js/is.js?_v=8467e59"></script>
+<script src="/js/jquery-ui-1.12.1-sortable-r6.min.js?_v=611662c"></script>
+<script src="/js/log-kliknuto.js?_v=dcb8aaf"></script>
+<script>
+is.Define.module('ISLogin', function(namespace, $) {
+
+	return {
+		validators: function() {
+			// mam jen mala pismena?
+			is.Forms.set_validator('v_pouze_mala', 'v_pouze_mala', /[A-Z\u0100\u0102\u0104\u0106\u0108\u010A\u010C\u010E\u0110\u0112\u0114\u0116\u0118\u011A\u011C\u011E\u0120\u0122\u0124\u0126\u0128\u012A\u012C\u012E\u0130\u0132\u0134\u0136\u0138\u0139\u013B\u013D\u013F\u0141\u0143\u0145\u0147\u014A\u014C\u014E\u0150\u0152\u0154\u0156\u0158\u015A\u015C\u015E\u0160\u0162\u0164\u0166\u0168\u016A\u016C\u016E\u0170\u0172\u0174\u0176\u0178\u0179\u017B\u017D -]/);
+
+			is.Forms.set_validator('v_pouze_velka', 'v_pouze_velka', /[a-z\u0101\u0103\u0105\u0107\u0109\u010B\u010D\u010F\u0111\u0113\u0115\u0117\u0119\u011B\u011D\u011F\u0121\u0123\u0125\u0127\u0129\u012B\u012D\u012F\u0131\u0133\u0135\u0137\u013A\u013C\u013E\u0140\u0142\u0144\u0146\u0148\u0149\u014B\u014D\u014F\u0151\u0153\u0155\u0157\u0159\u015B\u015D\u015F\u0161\u0163\u0165\u0167\u0169\u016B\u016D\u016F\u0171\u0173\u0175\u0177\u017A\u017C\u017E\u017F]/);
+
+			is.Forms.set_validator('hesla_stejna', 'v_hesla_stejna', function(val, $input){
+				if (val === $($input.data('other')).val()) {
+					return true;
+				}
+
+				return false;
+			});
+
+			window.Foundation.Abide.defaults.validators['passwd_check'] = function($input, required, $parent) {
+				var ret = true;
+
+				is.Ajax.request({
+					data: {
+						akce:		'passwd_check',
+						credential_123:	$input.val(),
+					},
+					async: false,
+					method: 'POST',
+				}).done(function(data){
+					if (data.chyba) {
+						is.Forms.change_input_err_msg($input, data.chyba);
+						ret = false;
+					}
+				});
+
+				return ret;
+			};
+		},
+	};
+});
+</script>
+<script>
+(function() {
+
+"use strict";
+
+is.Design.init({
+   "ldb" : {
+      "error_msg_required_any" : "Alespoň jeden údaj musí být vyplněn.",
+      "error_msg_number_natural" : "Očekáváno přirozené číslo (1,&nbsp;2,&nbsp;3,&nbsp;&hellip;).",
+      "error_msg_max_val" : "Číslo je větší než povolená hodnota.",
+      "error_msg_required" : "Povinný údaj.",
+      "chyba" : "Došlo k chybě, operaci opakujte nebo obnovte stránku.",
+      "error_msg_required_all" : "Všechny údaje jsou povinné.",
+      "sbalit" : "Sbalit",
+      "rozbalit" : "Rozbalit",
+      "byl_jste_odhlasen" : "Byl jste odhlášen.",
+      "error_msg_number_natural_zero" : "Očekáváno přirozené číslo nebo nula (0,&nbsp;1,&nbsp;2,&nbsp;3,&nbsp;&hellip;).",
+      "error_msg_uc_first" : "Musí začínat velkým počátečním písmenem.",
+      "byl_jste_odhlasen_zavrit" : "Zavřít",
+      "error_msg_alpha" : "Smí obsahovat pouze znaky abecedy, mezeru, podtržítko a spojovník.",
+      "error_msg_datepicker_max_date" : "Datum a čas nelze takto nastavit.",
+      "isForms_invalid" : "Chybně vyplněné údaje, prosím zkontrolujte.",
+      "error_msg_zalozka_url" : "Nesprávný tvar adresy.",
+      "error_msg_datepicker_min_date" : "Datum a čas nelze takto nastavit.",
+      "error_msg_min_val" : "Číslo je menší než povolená hodnota.",
+      "error_msg_min" : "Text je příliš krátký.",
+      "error_msg_number_integer" : "Očekáváno celé číslo (&hellip;,&nbsp;-2,&nbsp;-1,&nbsp;0,&nbsp;1,&nbsp;2,&nbsp;&hellip;).",
+      "error_msg" : "Nesprávný formát.",
+      "modal_full" : "Na celou obrazovku",
+      "error_msg_max" : "Text je příliš dlouhý.",
+      "error_msg_alpha_numeric" : "Smí obsahovat pouze znaky abecedy, číslo, mezeru, podtržítko a spojovník.",
+      "chyba_503" : "Aplikace je dočasně nedostupná pro zvýšenou zátěž systému.",
+      "error_msg_email" : "Nesprávný tvar e-mailové adresy",
+      "byl_jste_odhlasen_prihlasit" : "Přihlásit"
+   },
+   "js_init" : [
+      {
+         "method" : "init",
+         "params" : [],
+         "module" : "Forms"
+      },
+      {
+         "module" : "HashNavigation",
+         "params" : [],
+         "method" : "init"
+      },
+      {
+         "method" : "decode_mail",
+         "module" : "MailTo",
+         "params" : []
+      },
+      {
+         "method" : "init_header",
+         "module" : "Design",
+         "params" : []
+      },
+      {
+         "method" : "init_toolkit",
+         "params" : [],
+         "module" : "Design"
+      }
+   ],
+   "svatky" : {
+      "20100501" : 1,
+      "20020706" : 1,
+      "20080501" : 1,
+      "20031225" : 1,
+      "20111117" : 1,
+      "20220101" : 1,
+      "20211229" : 1,
+      "20020705" : 1,
+      "20021223" : 1,
+      "20001226" : 1,
+      "20071224" : 1,
+      "20031117" : 1,
+      "20011229" : 1,
+      "20220418" : 1,
+      "20240928" : 1,
+      "20111228" : 1,
+      "20181028" : 1,
+      "20121230" : 1,
+      "20151229" : 1,
+      "20011225" : 1,
+      "20171224" : 1,
+      "20181227" : 1,
+      "20251225" : 1,
+      "20241229" : 1,
+      "20190101" : 1,
+      "20020501" : 1,
+      "20250928" : 1,
+      "20240329" : 1,
+      "20140501" : 1,
+      "20101231" : 1,
+      "20100405" : 1,
+      "20261028" : 1,
+      "20120508" : 1,
+      "20070508" : 1,
+      "20141225" : 1,
+      "20261230" : 1,
+      "20121231" : 1,
+      "20261231" : 1,
+      "20181228" : 1,
+      "20071225" : 1,
+      "20260928" : 1,
+      "20041224" : 1,
+      "20020401" : 1,
+      "20130401" : 1,
+      "20191028" : 1,
+      "20001028" : 1,
+      "20151226" : 1,
+      "20010101" : 1,
+      "20030928" : 1,
+      "20061028" : 1,
+      "20090706" : 1,
+      "20101225" : 1,
+      "20170928" : 1,
+      "20161224" : 1,
+      "20171117" : 1,
+      "20050328" : 1,
+      "20191224" : 1,
+      "20260403" : 1,
+      "20040501" : 1,
+      "20080928" : 1,
+      "20180101" : 1,
+      "20170706" : 1,
+      "20260501" : 1,
+      "20151224" : 1,
+      "20190422" : 1,
+      "20151228" : 1,
+      "20030501" : 1,
+      "20231028" : 1,
+      "20100928" : 1,
+      "20101223" : 1,
+      "20041231" : 1,
+      "20101224" : 1,
+      "20241028" : 1,
+      "20161226" : 1,
+      "20161117" : 1,
+      "20030101" : 1,
+      "20051228" : 1,
+      "20131225" : 1,
+      "20171225" : 1,
+      "20210501" : 1,
+      "20200706" : 1,
+      "20161223" : 1,
+      "20221230" : 1,
+      "20050508" : 1,
+      "20161229" : 1,
+      "20070706" : 1,
+      "20050706" : 1,
+      "20021230" : 1,
+      "20240706" : 1,
+      "20161230" : 1,
+      "20141226" : 1,
+      "20150406" : 1,
+      "20120101" : 1,
+      "20090705" : 1,
+      "20091225" : 1,
+      "20061228" : 1,
+      "20100706" : 1,
+      "20180402" : 1,
+      "20141028" : 1,
+      "20261226" : 1,
+      "20151225" : 1,
+      "20090101" : 1,
+      "20131223" : 1,
+      "20150705" : 1,
+      "20100101" : 1,
+      "20021028" : 1,
+      "20141231" : 1,
+      "20191228" : 1,
+      "20171231" : 1,
+      "20061227" : 1,
+      "20041225" : 1,
+      "20210928" : 1,
+      "20131028" : 1,
+      "20151231" : 1,
+      "20150508" : 1,
+      "20160328" : 1,
+      "20120409" : 1,
+      "20131231" : 1,
+      "20011028" : 1,
+      "20020508" : 1,
+      "20081117" : 1,
+      "20051227" : 1,
+      "20250508" : 1,
+      "20140928" : 1,
+      "20071228" : 1,
+      "20141223" : 1,
+      "20201223" : 1,
+      "20010501" : 1,
+      "20071227" : 1,
+      "20201028" : 1,
+      "20170417" : 1,
+      "20020928" : 1,
+      "20211227" : 1,
+      "20101028" : 1,
+      "20061226" : 1,
+      "20180706" : 1,
+      "20111223" : 1,
+      "20021229" : 1,
+      "20090928" : 1,
+      "20051229" : 1,
+      "20211225" : 1,
+      "20250705" : 1,
+      "20170508" : 1,
+      "20240101" : 1,
+      "20060101" : 1,
+      "20170414" : 1,
+      "20221228" : 1,
+      "20230928" : 1,
+      "20161227" : 1,
+      "20131117" : 1,
+      "20111028" : 1,
+      "20131230" : 1,
+      "20221227" : 1,
+      "20251226" : 1,
+      "20111227" : 1,
+      "20161028" : 1,
+      "20230501" : 1,
+      "20061224" : 1,
+      "20231224" : 1,
+      "20030421" : 1,
+      "20230410" : 1,
+      "20021226" : 1,
+      "20160705" : 1,
+      "20261117" : 1,
+      "20011227" : 1,
+      "20200501" : 1,
+      "20201230" : 1,
+      "20231231" : 1,
+      "20171230" : 1,
+      "20170101" : 1,
+      "20131226" : 1,
+      "20140421" : 1,
+      "20261229" : 1,
+      "20251230" : 1,
+      "20250101" : 1,
+      "20150928" : 1,
+      "20121227" : 1,
+      "20160501" : 1,
+      "20070409" : 1,
+      "20231226" : 1,
+      "20210706" : 1,
+      "20151028" : 1,
+      "20060705" : 1,
+      "20201231" : 1,
+      "20040412" : 1,
+      "20231230" : 1,
+      "20181230" : 1,
+      "20190501" : 1,
+      "20101226" : 1,
+      "20071231" : 1,
+      "20210402" : 1,
+      "20010416" : 1,
+      "20011226" : 1,
+      "20130508" : 1,
+      "20160101" : 1,
+      "20241224" : 1,
+      "20220705" : 1,
+      "20181231" : 1,
+      "20231117" : 1,
+      "20011231" : 1,
+      "20040705" : 1,
+      "20091226" : 1,
+      "20101227" : 1,
+      "20041227" : 1,
+      "20060417" : 1,
+      "20200413" : 1,
+      "20191226" : 1,
+      "20011224" : 1,
+      "20040101" : 1,
+      "20060706" : 1,
+      "20111224" : 1,
+      "20111225" : 1,
+      "20171226" : 1,
+      "20121226" : 1,
+      "20121224" : 1,
+      "20041117" : 1,
+      "20260706" : 1,
+      "20031224" : 1,
+      "20020101" : 1,
+      "20131227" : 1,
+      "20260101" : 1,
+      "20051028" : 1,
+      "20041229" : 1,
+      "20140101" : 1,
+      "20230508" : 1,
+      "20021231" : 1,
+      "20101117" : 1,
+      "20071229" : 1,
+      "20030508" : 1,
+      "20121223" : 1,
+      "20191229" : 1,
+      "20071117" : 1,
+      "20080705" : 1,
+      "20240508" : 1,
+      "20180501" : 1,
+      "20110501" : 1,
+      "20151117" : 1,
+      "20231227" : 1,
+      "20121117" : 1,
+      "20060928" : 1,
+      "20080324" : 1,
+      "20050705" : 1,
+      "20070928" : 1,
+      "20050101" : 1,
+      "20110508" : 1,
+      "20201228" : 1,
+      "20251228" : 1,
+      "20131228" : 1,
+      "20150101" : 1,
+      "20130501" : 1,
+      "20120501" : 1,
+      "20261224" : 1,
+      "20111231" : 1,
+      "20161225" : 1,
+      "20221117" : 1,
+      "20031028" : 1,
+      "20190508" : 1,
+      "20231229" : 1,
+      "20251227" : 1,
+      "20251224" : 1,
+      "20120928" : 1,
+      "20051224" : 1,
+      "20021224" : 1,
+      "20241231" : 1,
+      "20100508" : 1,
+      "20121225" : 1,
+      "20230407" : 1,
+      "20151227" : 1,
+      "20241227" : 1,
+      "20050928" : 1,
+      "20161231" : 1,
+      "20240401" : 1,
+      "20141228" : 1,
+      "20240501" : 1,
+      "20011228" : 1,
+      "20180508" : 1,
+      "20191225" : 1,
+      "20041228" : 1,
+      "20250706" : 1,
+      "20220501" : 1,
+      "20211231" : 1,
+      "20090508" : 1,
+      "20241225" : 1,
+      "20151230" : 1,
+      "20021228" : 1,
+      "20251117" : 1,
+      "20141222" : 1,
+      "20051230" : 1,
+      "20171228" : 1,
+      "20211226" : 1,
+      "20210405" : 1,
+      "20051226" : 1,
+      "20121028" : 1,
+      "20161228" : 1,
+      "20260508" : 1,
+      "20040508" : 1,
+      "20211230" : 1,
+      "20060501" : 1,
+      "20081226" : 1,
+      "20110705" : 1,
+      "20091028" : 1,
+      "20200101" : 1,
+      "20190705" : 1,
+      "20001228" : 1,
+      "20141224" : 1,
+      "20251231" : 1,
+      "20230705" : 1,
+      "20001225" : 1,
+      "20130928" : 1,
+      "20201225" : 1,
+      "20080101" : 1,
+      "20031226" : 1,
+      "20050501" : 1,
+      "20141227" : 1,
+      "20120706" : 1,
+      "20191223" : 1,
+      "20190419" : 1,
+      "20250418" : 1,
+      "20220928" : 1,
+      "20181226" : 1,
+      "20201117" : 1,
+      "20071230" : 1,
+      "20210508" : 1,
+      "20221028" : 1,
+      "20001227" : 1,
+      "20251229" : 1,
+      "20261228" : 1,
+      "20210101" : 1,
+      "20200705" : 1,
+      "20220706" : 1,
+      "20070501" : 1,
+      "20260406" : 1,
+      "20011230" : 1,
+      "20211117" : 1,
+      "20230706" : 1,
+      "20180705" : 1,
+      "20240705" : 1,
+      "20141230" : 1,
+      "20241223" : 1,
+      "20081225" : 1,
+      "20191231" : 1,
+      "20221224" : 1,
+      "20201229" : 1,
+      "20220508" : 1,
+      "20061117" : 1,
+      "20010705" : 1,
+      "20201226" : 1,
+      "20180330" : 1,
+      "20221229" : 1,
+      "20111229" : 1,
+      "20231228" : 1,
+      "20071226" : 1,
+      "20061225" : 1,
+      "20150706" : 1,
+      "20010706" : 1,
+      "20251028" : 1,
+      "20100705" : 1,
+      "20070101" : 1,
+      "20001231" : 1,
+      "20201224" : 1,
+      "20190706" : 1,
+      "20160928" : 1,
+      "20121228" : 1,
+      "20210705" : 1,
+      "20180928" : 1,
+      "20191117" : 1,
+      "20051225" : 1,
+      "20051117" : 1,
+      "20170501" : 1,
+      "20221231" : 1,
+      "20130705" : 1,
+      "20160325" : 1,
+      "20001224" : 1,
+      "20230101" : 1,
+      "20241226" : 1,
+      "20111230" : 1,
+      "20160706" : 1,
+      "20201221" : 1,
+      "20140508" : 1,
+      "20261225" : 1,
+      "20171229" : 1,
+      "20171223" : 1,
+      "20061230" : 1,
+      "20120705" : 1,
+      "20101228" : 1,
+      "20201222" : 1,
+      "20110425" : 1,
+      "20200928" : 1,
+      "20171227" : 1,
+      "20091117" : 1,
+      "20220415" : 1,
+      "20040928" : 1,
+      "20140706" : 1,
+      "20191230" : 1,
+      "20010928" : 1,
+      "20021225" : 1,
+      "20221226" : 1,
+      "20181117" : 1,
+      "20001230" : 1,
+      "20061229" : 1,
+      "20181225" : 1,
+      "20001229" : 1,
+      "20211028" : 1,
+      "20221225" : 1,
+      "20030706" : 1,
+      "20150501" : 1,
+      "20231225" : 1,
+      "20250421" : 1,
+      "20260705" : 1,
+      "20241228" : 1,
+      "20040706" : 1,
+      "20211224" : 1,
+      "20010508" : 1,
+      "20041230" : 1,
+      "20131224" : 1,
+      "20021227" : 1,
+      "20080508" : 1,
+      "20041028" : 1,
+      "20090501" : 1,
+      "20151223" : 1,
+      "20101230" : 1,
+      "20011117" : 1,
+      "20200410" : 1,
+      "20041226" : 1,
+      "20241230" : 1,
+      "20081028" : 1,
+      "20030705" : 1,
+      "20110928" : 1,
+      "20060508" : 1,
+      "20111226" : 1,
+      "20071028" : 1,
+      "20080706" : 1,
+      "20181224" : 1,
+      "20181229" : 1,
+      "20110706" : 1,
+      "20070705" : 1,
+      "20021117" : 1,
+      "20190928" : 1,
+      "20130101" : 1,
+      "20211228" : 1,
+      "20170705" : 1,
+      "20140705" : 1,
+      "20141117" : 1,
+      "20191227" : 1,
+      "20200508" : 1,
+      "20261227" : 1,
+      "20121229" : 1,
+      "20130706" : 1,
+      "20241117" : 1,
+      "20110101" : 1,
+      "20090413" : 1,
+      "20171028" : 1,
+      "20131229" : 1,
+      "20091224" : 1,
+      "20081224" : 1,
+      "20141229" : 1,
+      "20101229" : 1,
+      "20250501" : 1,
+      "20160508" : 1
+   },
+   "session" : {
+      "session_id" : "5526742844",
+      "cgipar" : {},
+      "sn" : "/login.pl",
+      "vidim_kazdeho" : null,
+      "ekurz" : false,
+      "server_time" : "26. 2. 2025 17:08:45",
+      "auth" : "",
+      "is_design_z" : "",
+      "w_log_id" : "20504653116",
+      "login" : null,
+      "debug" : 1,
+      "remote_user" : null,
+      "is_muni_cz" : "is.muni.cz",
+      "uco" : null,
+      "lang" : "cs",
+      "pouzit_neoverene_udaje" : null,
+      "skola_id" : "14",
+      "skola_zkratka" : "MU"
+   }
+}
+);
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+from aiohttp import web
+import aiohttp_cors
+from database import *
+
+# ------------------------------------------------      REST API server           -----------------------------------------------------
+
+routes = web.RouteTableDef()
+
+@routes.post('/this-is-post')
+async def this_is_post(request):
+    
+    try:
+        # get data from APC
+        data = await request.json()
+        
+        # send the response to the APC
+        result = {
+            "param": data
+        }
+        
+        return web.json_response(result, status=200)
+    except Exception as e:
+        # send the response to the APC
+        result = {
+            "error": str(e)
+        }
+        return web.json_response(result, status=500)
+
+
+@routes.get('/this-is-get')
+async def this_is_get(request):
+    
+    try:
+        param = int(request.query.get('param'))
+
+        result = {
+            "param": param
+        }
+        
+        return web.json_response(result, status=200)
+
+    
+    except Exception as e:
+        result = {
+            "error": str(e)
+        }
+        
+        return web.json_response(result, status=500)
+
+
+app = web.Application()
+
+# Setup CORS
+cors = aiohttp_cors.setup(app, defaults={
+    "*": aiohttp_cors.ResourceOptions(
+        allow_credentials=True,
+        expose_headers="*",
+        allow_headers="*",
+    )
+})
+
+# Add routes to the application
+app.add_routes(routes)
+
+# Add CORS to each route
+for route in list(app.router.routes()):
+    cors.add(route)
+
+def start_http_server():
+    print("HTTP server started :-)")
+    web.run_app(app, host="192.168.0.74", port=7676)
+
+
+# Without using `asyncio.run()`, you can use `asyncio` directly in the code as follows:
+
+if __name__ == '__main__':
+    start_http_server()
