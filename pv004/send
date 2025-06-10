@@ -1,0 +1,3 @@
+#!/bin/bash
+
+scp ./studis.sh xrocek@fi.muni.cz:/home/xrocek/pv004lab/studis
